@@ -1,57 +1,461 @@
-/* General styles for the settings page */
-#image-optimizer-settings {
+/**
+ * Image Optimizer Admin Styles
+ *
+ * @package ImageOptimizer
+ * @since 1.0.0
+ */
+
+/* Admin Page Layout */
+.image-optimizer-admin {
+    max-width: 1200px;
+    margin: 20px 0;
+}
+
+.image-optimizer-header {
+    background: #fff;
     padding: 20px;
-    max-width: 800px;
-}
-
-#image-optimizer-settings h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.settings-section {
-    margin-bottom: 20px;
-}
-
-.settings-section h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.form-field {
-    margin-bottom: 10px;
-}
-
-.form-field label {
-    display: inline-block;
-    margin-left: 5px;
-}
-
-.button {
-    margin-right: 10px;
-}
-
-/* Toast notifications */
-.toast {
-    display: block;
-    margin-bottom: 10px;
-    padding: 10px;
+    border: 1px solid #ccd0d4;
     border-radius: 4px;
-    color: #fff;
+    margin-bottom: 20px;
 }
 
-.toast.success {
-    background-color: #4CAF50;
+.image-optimizer-header h2 {
+    margin: 0 0 10px 0;
+    color: #23282d;
+    font-size: 24px;
 }
 
-.toast.danger {
-    background-color: #F44336;
+.image-optimizer-header p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.image-optimizer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+/* Settings Form */
+.image-optimizer-admin form {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+}
+
+.image-optimizer-admin .form-table th {
+    width: 200px;
+    padding: 15px 10px 15px 0;
+}
+
+.image-optimizer-admin .form-table td {
+    padding: 15px 10px;
+}
+
+.image-optimizer-admin input[type="number"] {
+    width: 100px;
+}
+
+/* Action Buttons */
+.image-optimizer-actions {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.image-optimizer-actions h3 {
+    margin: 0 0 15px 0;
+    color: #23282d;
+    font-size: 18px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.action-buttons .button {
+    min-width: 120px;
+}
+
+/* Toggle Settings */
+.image-optimizer-toggles {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.image-optimizer-toggles h3 {
+    margin: 0 0 15px 0;
+    color: #23282d;
+    font-size: 18px;
+}
+
+.toggle-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.toggle-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.toggle-field label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.toggle-field input[type="checkbox"] {
+    margin: 0;
+}
+
+.toggle-field select {
+    max-width: 200px;
+}
+
+.toggle-field .description {
+    margin: 0;
+    color: #666;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* System Status */
+.image-optimizer-status {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+}
+
+.image-optimizer-status h3 {
+    margin: 0 0 15px 0;
+    color: #23282d;
+    font-size: 18px;
+}
+
+.status-grid {
+    display: grid;
+    gap: 10px;
+}
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 3px;
+}
+
+.status-label {
+    font-weight: 500;
+}
+
+.status-value {
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.status-ok {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-warning {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Excluded Sizes Grid */
+.excluded-sizes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.size-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.size-checkbox input[type="checkbox"] {
+    margin: 0;
+}
+
+.size-checkbox label {
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* Media Library Integration */
+.column-image_optimizer {
+    width: 120px;
+}
+
+.optimization-stats {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+.stat-label {
+    font-weight: 500;
+    color: #666;
+}
+
+.stat-value {
+    font-weight: 600;
+    color: #23282d;
+}
+
+.not-optimized {
+    color: #666;
+    font-style: italic;
+    font-size: 12px;
+}
+
+/* Button States */
+.button.converting,
+.button.processing {
+    position: relative;
+    color: transparent !important;
+}
+
+.button.converting::after,
+.button.processing::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.button.converted {
+    background: #28a745 !important;
+    border-color: #28a745 !important;
+    color: #fff !important;
+}
+
+.button.error {
+    background: #dc3545 !important;
+    border-color: #dc3545 !important;
+    color: #fff !important;
+}
+
+/* Notices */
+.image-optimizer-admin .notice {
+    margin: 0 0 20px 0;
+}
+
+/* Toast Container */
+#toast-container {
+    position: fixed;
+    top: 32px;
+    right: 20px;
+    z-index: 999999;
+    max-width: 350px;
+}
+
+.toast {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    overflow: hidden;
+    display: none;
+}
+
+.toast-success {
+    border-left: 4px solid #28a745;
+}
+
+.toast-error {
+    border-left: 4px solid #dc3545;
+}
+
+.toast-warning {
+    border-left: 4px solid #ffc107;
 }
 
 .toast-header {
-    font-weight: bold;
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
 }
 
 .toast-body {
-    margin-top: 5px;
+    padding: 10px 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 782px) {
+    .image-optimizer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .action-buttons .button {
+        width: 100%;
+    }
+    
+    .excluded-sizes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #toast-container {
+        left: 20px;
+        right: 20px;
+        max-width: none;
+    }
+}
+
+/* Animations */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid #0073aa;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: #f0f0f1;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: #0073aa;
+    transition: width 0.3s ease;
+}
+
+/* Tooltips */
+.ui-tooltip {
+    background: #23282d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ui-tooltip::before {
+    border-color: #23282d;
+}
+
+/* Accessibility */
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+/* Focus States */
+.button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #0073aa;
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .image-optimizer-admin {
+        border: 2px solid #000;
+    }
+    
+    .status-item {
+        border: 1px solid #000;
+    }
+    
+    .button {
+        border: 2px solid #000;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .button.converting::after,
+    .button.processing::after,
+    .loading::after {
+        animation: none;
+    }
+    
+    .progress-bar-fill {
+        transition: none;
+    }
+    
+    .toast {
+        transition: none;
+    }
 }
