@@ -1,0 +1,63 @@
+# Directories
+/dist/
+/build/
+/node_modules/
+/vendor/
+/logs/*
+!/logs/.htaccess
+!/logs/index.php
+
+# WordPress
+/wp-config.php
+/wp-content/
+/wp-admin/
+/wp-includes/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~.nib

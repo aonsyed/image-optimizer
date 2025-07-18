@@ -1,0 +1,135 @@
+# Copyright (C) 2025 Your Name
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Image Optimizer 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-image-optimizer\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-07-17T12:00:00+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.0\n"
+"X-Domain: wp-image-optimizer\n"
+
+#. Plugin Name of the plugin
+msgid "WP Image Optimizer"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/your-username/wp-image-optimizer"
+msgstr ""
+
+#. Description of the plugin
+msgid "Automatically converts images to modern formats (WebP, AVIF) using ImageMagick or GD libraries for improved website performance."
+msgstr ""
+
+#. Author of the plugin
+msgid "Your Name"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://yourwebsite.com"
+msgstr ""
+
+#: includes/class-wp-image-optimizer.php:123
+msgid "WP Image Optimizer requires WordPress %s or higher. Please update WordPress."
+msgstr ""
+
+#: includes/class-wp-image-optimizer.php:135
+msgid "WP Image Optimizer requires PHP %s or higher. Please update PHP."
+msgstr ""
+
+#: includes/class-wp-image-optimizer.php:347
+msgid "WP Image Optimizer cannot be activated due to unmet requirements."
+msgstr ""
+
+#: includes/class-wp-image-optimizer.php:348
+msgid "Plugin Activation Error"
+msgstr ""
+
+#: includes/class-database-manager.php:456
+msgid "Invalid import data format."
+msgstr ""
+
+#: includes/class-database-manager.php:463
+msgid "Import data is from a newer version (%s) than current database version (%s)."
+msgstr ""
+
+#: includes/class-database-manager.php:475
+msgid "Failed to import data."
+msgstr ""
+
+#: includes/class-error-handler.php:612
+msgid "Image conversion is not available. Please ensure ImageMagick or GD library is installed on your server."
+msgstr ""
+
+#: includes/class-error-handler.php:613
+msgid "Image conversion failed. The image may be corrupted or in an unsupported format."
+msgstr ""
+
+#: includes/class-error-handler.php:614
+msgid "The image file could not be found. It may have been moved or deleted."
+msgstr ""
+
+#: includes/class-error-handler.php:615
+msgid "The image file is too large to process. Please try with a smaller image."
+msgstr ""
+
+#: includes/class-error-handler.php:616
+msgid "The requested image format is not supported."
+msgstr ""
+
+#: includes/class-error-handler.php:617
+msgid "Permission denied. Please check file and directory permissions."
+msgstr ""
+
+#: includes/class-error-handler.php:618
+msgid "Insufficient disk space to complete the operation."
+msgstr ""
+
+#: includes/class-error-handler.php:619
+msgid "Not enough memory to process this image. Try increasing PHP memory limit."
+msgstr ""
+
+#: includes/class-error-handler.php:628
+msgid "An error occurred during %s. Please try again or contact support if the problem persists."
+msgstr ""
+
+#: includes/class-error-handler.php:633
+msgid "An unexpected error occurred. Please try again or contact support if the problem persists."
+msgstr ""
+
+#: includes/class-error-handler.php:651
+msgid "An unknown error occurred."
+msgstr ""
+
+#: includes/class-error-handler.php:1000
+msgid "Permission denied error detected. Please check file and directory permissions for the WordPress uploads directory."
+msgstr ""
+
+#: includes/class-error-handler.php:1079
+msgid "[%s] WP Image Optimizer Critical Error"
+msgstr ""
+
+#: includes/class-error-handler.php:1085
+msgid "A critical error has occurred in WP Image Optimizer.\n\nError ID: %1$s\n\nPlease check your WordPress admin dashboard for more details.\n\nSite: %2$s"
+msgstr ""
+
+#: includes/class-cleanup-manager.php:112
+msgid "Failed to clean up orphaned files."
+msgstr ""
+
+#: includes/class-cleanup-manager.php:177
+msgid "Failed to clean up temporary files."
+msgstr ""
+
+#: includes/class-cleanup-manager.php:217
+msgid "Could not get attachment file path."
+msgstr ""
+
+#: includes/class-cleanup-manager.php:240
+msgid "Failed to clean up converted files."
+msgstr ""

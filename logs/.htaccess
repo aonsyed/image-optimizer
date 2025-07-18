@@ -1,0 +1,14 @@
+# Disable directory browsing
+Options -Indexes
+
+# Deny access to all files
+<FilesMatch ".*">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Allow access to index.php
+<FilesMatch "index\.php$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
