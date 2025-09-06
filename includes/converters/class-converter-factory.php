@@ -121,6 +121,9 @@ class Converter_Factory {
 	 * @return array Array of server capabilities.
 	 */
 	public static function get_server_capabilities() {
+		// Try loading from cache first
+		self::load_capabilities_cache();
+		
 		if ( null !== self::$capabilities_cache ) {
 			return self::$capabilities_cache;
 		}
