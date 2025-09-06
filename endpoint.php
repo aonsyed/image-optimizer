@@ -71,6 +71,11 @@ function wp_image_optimizer_handle_endpoint() {
 			return;
 		}
 
+		// Load image handler class
+		if ( ! class_exists( 'WP_Image_Optimizer_Image_Handler' ) ) {
+			require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-image-handler.php';
+		}
+		
 		// Create image handler and process request
 		$image_handler = new WP_Image_Optimizer_Image_Handler();
 		$image_handler->handle_image_request( $requested_file );
@@ -91,6 +96,11 @@ function wp_image_optimizer_handle_endpoint() {
  * @return string|null Requested file path
  */
 function wp_image_optimizer_get_requested_file() {
+	// Load required classes
+	if ( ! class_exists( 'WP_Image_Optimizer_Security_Validator' ) ) {
+		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-security-validator.php';
+	}
+	
 	// Get security validator
 	$security_validator = WP_Image_Optimizer_Security_Validator::get_instance();
 	
@@ -168,6 +178,14 @@ function wp_image_optimizer_serve_error( $code, $message ) {
 	
 	// Log security-related errors
 	if ( $code === 403 || $code === 401 ) {
+		// Load required classes
+		if ( ! class_exists( 'WP_Image_Optimizer_Error_Handler' ) ) {
+			require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-error-handler.php';
+		}
+		if ( ! class_exists( 'WP_Image_Optimizer_Security_Validator' ) ) {
+			require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-security-validator.php';
+		}
+		
 		$error_handler = WP_Image_Optimizer_Error_Handler::get_instance();
 		$security_validator = WP_Image_Optimizer_Security_Validator::get_instance();
 		
@@ -241,6 +259,11 @@ function wp_image_optimizer_add_cors_headers() {
  */
 function wp_image_optimizer_log_request( $requested_file ) {
 	if ( defined( 'WP_DEBUG' ) && WP_DEBUG && defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
+		// Load required classes
+		if ( ! class_exists( 'WP_Image_Optimizer_Security_Validator' ) ) {
+			require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-security-validator.php';
+		}
+		
 		// Get security validator
 		$security_validator = WP_Image_Optimizer_Security_Validator::get_instance();
 		
@@ -286,6 +309,11 @@ function wp_image_optimizer_apply_rate_limit() {
 	// Skip rate limiting for logged-in administrators
 	if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
 		return true;
+	}
+	
+	// Load required classes
+	if ( ! class_exists( 'WP_Image_Optimizer_Security_Validator' ) ) {
+		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-security-validator.php';
 	}
 	
 	// Get security validator instance

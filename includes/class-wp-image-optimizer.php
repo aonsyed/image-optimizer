@@ -182,15 +182,27 @@ class WP_Image_Optimizer {
 		// Load Settings Manager
 		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-settings-manager.php';
 		
+		// Load Error Handler
+		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-error-handler.php';
+		
+		// Load Security Validator
+		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-security-validator.php';
+		
 		// Load required classes for hooks integration
 		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-file-handler.php';
 		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/interfaces/interface-converter.php';
 		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/converters/class-converter-factory.php';
+		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/converters/class-gd-converter.php';
+		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/converters/class-imagemagick-converter.php';
 		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-image-converter.php';
+		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-image-handler.php';
 		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-hooks-integration.php';
 		
 		// Load batch processor
 		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-batch-processor.php';
+		
+		// Load Cleanup Manager
+		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-cleanup-manager.php';
 		
 		// Initialize hooks integration
 		$this->hooks_integration = new WP_Image_Optimizer_Hooks_Integration();
@@ -439,6 +451,9 @@ class WP_Image_Optimizer {
 		// Log the update
 		if ( $updated ) {
 			// Load error handler if available
+			if ( ! class_exists( 'WP_Image_Optimizer_Error_Handler' ) ) {
+				require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-error-handler.php';
+			}
 			if ( class_exists( 'WP_Image_Optimizer_Error_Handler' ) ) {
 				$error_handler = WP_Image_Optimizer_Error_Handler::get_instance();
 				$error_handler->log_error(

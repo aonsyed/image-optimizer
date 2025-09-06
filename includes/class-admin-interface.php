@@ -390,6 +390,9 @@ class WP_Image_Optimizer_Admin_Interface {
 		$template_path = WP_IMAGE_OPTIMIZER_PLUGIN_DIR . "admin/partials/{$template}.php";
 		
 		if ( file_exists( $template_path ) ) {
+			// Load required classes
+			require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/converters/class-converter-factory.php';
+			
 			// Make settings and server capabilities available to template
 			$all_settings = WP_Image_Optimizer_Settings_Manager::get_settings();
 			$server_capabilities = Converter_Factory::get_server_capabilities();
@@ -633,6 +636,9 @@ class WP_Image_Optimizer_Admin_Interface {
 	 * Display server capability notices
 	 */
 	private function display_capability_notices() {
+		// Load required classes
+		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/converters/class-converter-factory.php';
+		
 		$capabilities = Converter_Factory::get_server_capabilities();
 		
 		// Check if no image processing library is available
@@ -695,6 +701,9 @@ class WP_Image_Optimizer_Admin_Interface {
 	 * Handle test conversion AJAX request
 	 */
 	public function handle_test_conversion_ajax() {
+		// Load required classes
+		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-security-validator.php';
+		
 		// Get security validator
 		$security_validator = WP_Image_Optimizer_Security_Validator::get_instance();
 		
@@ -716,6 +725,9 @@ class WP_Image_Optimizer_Admin_Interface {
 		}
 
 		try {
+			// Load required classes
+			require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/converters/class-converter-factory.php';
+			
 			// Get server capabilities
 			$capabilities = Converter_Factory::get_server_capabilities();
 			
@@ -776,6 +788,9 @@ class WP_Image_Optimizer_Admin_Interface {
 	 * Handle clear cache AJAX request
 	 */
 	public function handle_clear_cache_ajax() {
+		// Load required classes
+		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-security-validator.php';
+		
 		// Get security validator
 		$security_validator = WP_Image_Optimizer_Security_Validator::get_instance();
 		
@@ -791,6 +806,9 @@ class WP_Image_Optimizer_Admin_Interface {
 		}
 
 		try {
+			// Load required classes
+			require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/converters/class-converter-factory.php';
+			
 			// Clear server capabilities cache
 			Converter_Factory::clear_capabilities_cache();
 			
@@ -809,6 +827,9 @@ class WP_Image_Optimizer_Admin_Interface {
 	 * Handle regenerate images AJAX request
 	 */
 	public function handle_regenerate_images_ajax() {
+		// Load required classes
+		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-security-validator.php';
+		
 		// Get security validator
 		$security_validator = WP_Image_Optimizer_Security_Validator::get_instance();
 		
@@ -846,6 +867,9 @@ class WP_Image_Optimizer_Admin_Interface {
 	 * Handle start bulk regeneration AJAX request
 	 */
 	public function handle_start_bulk_regeneration_ajax() {
+		// Load required classes
+		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-security-validator.php';
+		
 		// Get security validator
 		$security_validator = WP_Image_Optimizer_Security_Validator::get_instance();
 		
@@ -910,6 +934,9 @@ class WP_Image_Optimizer_Admin_Interface {
 	 * Handle stop bulk regeneration AJAX request
 	 */
 	public function handle_stop_bulk_regeneration_ajax() {
+		// Load required classes
+		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-security-validator.php';
+		
 		// Get security validator
 		$security_validator = WP_Image_Optimizer_Security_Validator::get_instance();
 		
@@ -951,6 +978,9 @@ class WP_Image_Optimizer_Admin_Interface {
 	 * Handle bulk progress AJAX request
 	 */
 	public function handle_bulk_progress_ajax() {
+		// Load required classes
+		require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-security-validator.php';
+		
 		// Get security validator
 		$security_validator = WP_Image_Optimizer_Security_Validator::get_instance();
 		
@@ -1028,8 +1058,11 @@ class WP_Image_Optimizer_Admin_Interface {
 		$server_type = isset( $_POST['server_type'] ) ? sanitize_text_field( wp_unslash( $_POST['server_type'] ) ) : 'nginx';
 
 		try {
+			// Load required classes
+			require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-server-config.php';
+			
 			// Create server config instance
-			$server_config = new Server_Config();
+			$server_config = new WP_Image_Optimizer_Server_Config();
 			
 			// Get configuration
 			$config = $server_config->get_config( $server_type );

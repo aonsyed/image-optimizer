@@ -220,6 +220,9 @@ class WP_Image_Optimizer_Hooks_Integration {
 		$original_path = str_replace( $upload_dir['baseurl'], $upload_dir['basedir'], $original_url );
 
 		// Check if converted version exists
+		if ( ! class_exists( 'WP_Image_Optimizer_File_Handler' ) ) {
+			require_once WP_IMAGE_OPTIMIZER_PLUGIN_DIR . 'includes/class-file-handler.php';
+		}
 		$file_handler = new WP_Image_Optimizer_File_Handler( $settings );
 		$converted_path = $file_handler->generate_converted_path( $original_path, $best_format );
 		
